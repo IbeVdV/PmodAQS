@@ -26,6 +26,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>BSP/bsp_stk_leds.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/hardware/kit/common/bsp/bsp_stk_leds.c</locationURI>
+		</link>
+		<link>
 			<name>emlib/em_cmu.c</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/platform/emlib/src/em_cmu.c</locationURI>

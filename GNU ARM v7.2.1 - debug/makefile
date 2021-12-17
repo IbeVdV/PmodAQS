@@ -11,6 +11,7 @@ RM := rm -rf
 -include src/subdir.mk
 -include emlib/subdir.mk
 -include CMSIS/EFM32HG/subdir.mk
+-include BSP/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -31,7 +32,7 @@ all: SLSTK3400A_EFM32HG_i2c_2.axf
 SLSTK3400A_EFM32HG_i2c_2.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU ARM C Linker'
-	arm-none-eabi-gcc -g3 -gdwarf-2 -mcpu=cortex-m0plus -mthumb -T "SLSTK3400A_EFM32HG_i2c_2.ld" -Xlinker --gc-sections -Xlinker -Map="SLSTK3400A_EFM32HG_i2c_2.map" --specs=nano.specs -o SLSTK3400A_EFM32HG_i2c_2.axf "./CMSIS/EFM32HG/startup_efm32hg.o" "./CMSIS/EFM32HG/system_efm32hg.o" "./emlib/em_cmu.o" "./emlib/em_core.o" "./emlib/em_emu.o" "./emlib/em_gpio.o" "./emlib/em_i2c.o" "./emlib/em_system.o" "./src/i2cspm.o" "./src/main_zg_hg.o" -Wl,--start-group -lgcc -lc -lnosys -Wl,--end-group
+	arm-none-eabi-gcc -g3 -gdwarf-2 -mcpu=cortex-m0plus -mthumb -T "SLSTK3400A_EFM32HG_i2c_2.ld" -Xlinker --gc-sections -Xlinker -Map="SLSTK3400A_EFM32HG_i2c_2.map" --specs=nano.specs -o SLSTK3400A_EFM32HG_i2c_2.axf "./BSP/bsp_stk_leds.o" "./CMSIS/EFM32HG/startup_efm32hg.o" "./CMSIS/EFM32HG/system_efm32hg.o" "./emlib/em_cmu.o" "./emlib/em_core.o" "./emlib/em_emu.o" "./emlib/em_gpio.o" "./emlib/em_i2c.o" "./emlib/em_system.o" "./src/i2cspm.o" "./src/main_zg_hg.o" -Wl,--start-group -lgcc -lc -lnosys -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
